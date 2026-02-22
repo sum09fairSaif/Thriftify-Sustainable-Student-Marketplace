@@ -14,18 +14,15 @@ const svgAssets = import.meta.glob("../Assets/svgs/*", {
 const image = (name: string) => imageAssets[`../Assets/Images/${name}`] ?? "";
 const svg = (name: string) => svgAssets[`../Assets/svgs/${name}`] ?? "";
 
-const sliderStyle = {
-  "--width": "500px",
-  "--height": "5000px",
-  "--quantity": 10,
-} as CSSProperties;
-
 const MainLanding = () => {
   return (
     <>
       <header>
-        <div className="container">
+        <div className="landing-container">
           <nav>
+            <div className="logo">
+              <img src={image("main-website-logo.png")} alt="Thriftify logo" />
+            </div>
             <ul className="nav-links">
               <li>
                 <a href="#home">Home</a>
@@ -48,7 +45,7 @@ const MainLanding = () => {
       </header>
 
       <section id="hero">
-        <div className="container">
+        <div className="landing-container">
           <div className="hero-content">
             <h1>
               Thrift Smart,
