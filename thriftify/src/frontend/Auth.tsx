@@ -33,7 +33,7 @@ const Auth: React.FC = () => {
 
   return (
     <div className={`auth-shell ${mode === "signup" ? "signup-active" : ""}`}>
-      <div className="auth-card">
+      <div className={`auth-card ${isCovering ? "is-covering" : ""}`}>
         <div className="auth-forms">
           <div
             className={`auth-pane auth-pane-login ${mode === "login" ? "is-active" : "is-hidden"}`}

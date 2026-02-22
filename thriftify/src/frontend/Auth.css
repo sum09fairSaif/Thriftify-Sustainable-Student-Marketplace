@@ -10,17 +10,16 @@
   display: grid;
   place-items: center;
   padding: 20px;
-  background: radial-gradient(
-    circle at 14% 18%,
-    rgba(255, 255, 255, 0.45),
-    rgba(255, 255, 255, 0) 42%
-  );
+  background-image: url("./Assets/Images/login-signup-page-background.jpeg");
+  opacity: 0.9;
+  background-size: cover;
+  background-position: center;
 }
 
 .auth-card {
   width: min(980px, 100%);
   min-height: 560px;
-  background: rgba(247, 249, 255, 0.92);
+  background: transparent;
   border-radius: 26px;
   border: 1px solid rgba(255, 255, 255, 0.55);
   box-shadow:
@@ -34,6 +33,12 @@
 .auth-forms {
   position: absolute;
   inset: 0;
+  transition: opacity 0.18s ease;
+}
+
+.auth-card.is-covering .auth-forms {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .auth-pane {
@@ -84,6 +89,7 @@
   left: 0;
   width: 50%;
   background: linear-gradient(165deg, #86a0f4 0%, #6f8ee9 60%, #6686e4 100%);
+  opacity: 0.8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -231,12 +237,12 @@
 .social-icons a {
   width: 48px;
   height: 48px;
-  border: 1.5px solid rgba(156, 166, 190, 0.55);
+  border: 1.5px solid rgb(255, 255, 255);
   border-radius: 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #384158;
+  color: #ffffff;
   font-size: 22px;
   text-decoration: none;
 }
