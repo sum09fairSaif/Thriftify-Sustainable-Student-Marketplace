@@ -61,6 +61,12 @@ nav {
   align-items: flex-start;
   justify-content: center;
   padding-left: 100px;
+
+  background-image: url("../Assets/Images/main-landing-page-first-section.png");
+  background-size: cover; /* shows full image */
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 .hero-content {
@@ -72,7 +78,8 @@ nav {
   font-family: "Playfair Display", serif;
   font-size: 3.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #0f1f3a;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: 10px;
 }
 

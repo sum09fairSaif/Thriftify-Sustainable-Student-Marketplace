@@ -17,7 +17,7 @@ body,
 body {
   margin: 0;
   min-width: 320px;
-  background-image: url(./src/frontend/Assets/Images/abstract-colorful-geometric-shape-background-modern-color-background-for-your-website-vector.jpg);
+  background-image: url("./frontend/Assets/Images/default-modern-colorful-background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -29,13 +29,19 @@ const SignUp = () => {
           <p>or sign up with social platforms</p>
 
           <div className="social-icons">
-            <a href="#" aria-label="Google">
+            <a
+              href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F&dsh=S-99415363%3A1771754183950655&followup=https%3A%2F%2Faccounts.google.com%2F&ifkv=ASfE1-rSGIGsff9leBqHxrLOj5SJFjxUzCohQgMYscGeUzjdMXecWIFvp4Ep3VOio9OYOt4FRuY8&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+              aria-label="Google"
+            >
               <i className="bx bxl-google"></i>
             </a>
-            <a href="#" aria-label="Facebook">
+            <a href="https://www.facebook.com/" aria-label="Facebook">
               <i className="bx bxl-facebook"></i>
             </a>
-            <a href="#" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/accounts/login/?hl=en"
+              aria-label="Instagram"
+            >
               <i className="bx bxl-instagram"></i>
             </a>
           </div>
