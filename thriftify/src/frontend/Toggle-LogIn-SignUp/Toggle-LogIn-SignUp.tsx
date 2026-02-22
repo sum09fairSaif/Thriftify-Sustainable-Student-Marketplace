@@ -1,23 +1,74 @@
 import React, { useState } from "react";
 import "./Toggle-LogIn-SignUp.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ToggleLoginSignup: React.FC = () => {
   const [isRegisterActive, setIsRegisterActive] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate();
+
+  const handleRegisterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3001/register", {
+        name,
+        email,
+        password,
+      })
+      .then((result) => {
+        console.log(result);
+        setIsRegisterActive(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleLoginSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3001/login", {
+        email,
+        password,
+      })
+      .then((result) => {
+        console.log(result);
+        if (result.data.message === "Login successful") {
+          navigate("/dashboard");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div className="toggle-page">
       <div className={`container ${isRegisterActive ? "active" : ""}`}>
         <div className="form-box login">
-          <form action="#">
+          <form onSubmit={handleLoginSubmit}>
             <h1>Log In</h1>
 
             <div className="input-box">
-              <input type="text" placeholder="Username" required />
-              <i className="bx bxs-user" />
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <i className="bx bxs-envelope" />
             </div>
 
             <div className="input-box">
-              <input type="password" placeholder="Password" required />
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <i className="bx bxs-lock-alt" />
             </div>
 
@@ -46,21 +97,39 @@ const ToggleLoginSignup: React.FC = () => {
         </div>
 
         <div className="form-box register">
-          <form action="#">
+          <form onSubmit={handleRegisterSubmit}>
             <h1>Sign Up</h1>
 
             <div className="input-box">
-              <input type="text" placeholder="Username" required />
+              <input
+                type="text"
+                placeholder="Username"
+                autoComplete="off"
+                required
+                onChange={(e) => setName(e.target.value)}
+              />
               <i className="bx bxs-user" />
             </div>
 
             <div className="input-box">
-              <input type="email" placeholder="Email" required />
+              <input
+                type="email"
+                placeholder="Email"
+                autoComplete="off"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <i className="bx bxs-envelope" />
             </div>
 
             <div className="input-box">
-              <input type="password" placeholder="Password" required />
+              <input
+                type="password"
+                placeholder="Password"
+                autoComplete="off"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <i className="bx bxs-lock-alt" />
             </div>
 
